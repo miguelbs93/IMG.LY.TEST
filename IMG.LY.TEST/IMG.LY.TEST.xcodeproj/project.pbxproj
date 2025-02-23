@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD0D399A2D6B859100C2A75E /* Packages */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Packages; path = ../Packages; sourceTree = SOURCE_ROOT; };
 		AD8C6B0E2D6615D0003FBBE3 /* IMG.LY.TEST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMG.LY.TEST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8C6B1F2D6615D1003FBBE3 /* IMG.LY.TESTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMG.LY.TESTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8C6B292D6615D1003FBBE3 /* IMG.LY.TESTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMG.LY.TESTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +76,7 @@
 		AD8C6B052D6615D0003FBBE3 = {
 			isa = PBXGroup;
 			children = (
+				AD0D399A2D6B859100C2A75E /* Packages */,
 				AD8C6B102D6615D0003FBBE3 /* IMG.LY.TEST */,
 				AD8C6B222D6615D1003FBBE3 /* IMG.LY.TESTTests */,
 				AD8C6B2C2D6615D1003FBBE3 /* IMG.LY.TESTUITests */,
@@ -414,10 +416,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.IMG-LY-TEST";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -453,10 +456,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.IMG-LY-TEST";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
