@@ -4,5 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "Packages"
+    name: "Packages",
+    platforms: [.iOS(.v18)],
+    products: [
+        .library(
+            name: "NetworkingManager",
+            targets: ["NetworkingManager"]
+        )
+    ],
+    targets: [
+        .target(
+            name: "NetworkingManager",
+            dependencies: []
+            )
+    ]
 )

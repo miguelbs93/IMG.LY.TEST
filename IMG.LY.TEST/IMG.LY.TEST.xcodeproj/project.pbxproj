@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AD0D39A72D6CDC7800C2A75E /* NetworkingManager in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39A62D6CDC7800C2A75E /* NetworkingManager */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AD8C6B202D6615D1003FBBE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0D39A72D6CDC7800C2A75E /* NetworkingManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +119,7 @@
 			);
 			name = IMG.LY.TEST;
 			packageProductDependencies = (
+				AD0D39A62D6CDC7800C2A75E /* NetworkingManager */,
 			);
 			productName = IMG.LY.TEST;
 			productReference = AD8C6B0E2D6615D0003FBBE3 /* IMG.LY.TEST.app */;
@@ -197,6 +203,9 @@
 			);
 			mainGroup = AD8C6B052D6615D0003FBBE3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AD0D39A52D6CDC7800C2A75E /* XCLocalSwiftPackageReference "../Packages" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AD8C6B0F2D6615D0003FBBE3 /* Products */;
 			projectDirPath = "";
@@ -273,6 +282,8 @@
 /* Begin XCBuildConfiguration section */
 		AD8C6B312D6615D1003FBBE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = AD8C6B102D6615D0003FBBE3 /* IMG.LY.TEST */;
+			baseConfigurationReferenceRelativePath = Configurations/Base.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -334,6 +345,8 @@
 		};
 		AD8C6B322D6615D1003FBBE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = AD8C6B102D6615D0003FBBE3 /* IMG.LY.TEST */;
+			baseConfigurationReferenceRelativePath = Configurations/Base.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -398,6 +411,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IMG-LY-TEST-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -438,6 +452,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IMG-LY-TEST-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -595,6 +610,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		AD0D39A52D6CDC7800C2A75E /* XCLocalSwiftPackageReference "../Packages" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AD0D39A62D6CDC7800C2A75E /* NetworkingManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkingManager;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD8C6B062D6615D0003FBBE3 /* Project object */;
 }
