@@ -1,21 +1,20 @@
 import Foundation
 
-protocol HTTPRequest {
-    var baseUrl: URL { get }
+public protocol HTTPRequest {
     var path: String { get }
     var method: HTTPMethod { get }
     var headers: [String: String] { get }
     var parameters: [String: Any] { get }
 }
 
-extension HTTPRequest {
+public extension HTTPRequest {
     func urlRequest(with baseURL: URL) -> URLRequest {
         let components = URLComponents(
-            url: baseUrl.appendingPathComponent(path),
+            url: baseURL.appendingPathComponent(path),
             resolvingAgainstBaseURL: false
         )
         
-        var request = URLRequest(url: components?.url ?? baseUrl.appendingPathComponent(path))
+        var request = URLRequest(url: components?.url ?? baseURL.appendingPathComponent(path))
         request.httpMethod = method.name
         request.allHTTPHeaderFields = headers
         
@@ -50,7 +49,7 @@ extension HTTPRequest {
     }
 }
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case delete
     case get
     case post
