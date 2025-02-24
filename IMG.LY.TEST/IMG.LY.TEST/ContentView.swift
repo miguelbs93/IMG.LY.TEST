@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct TreeViewApp: App {
+struct ContentView: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
