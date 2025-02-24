@@ -10,12 +10,31 @@ let package = Package(
         .library(
             name: "NetworkingManager",
             targets: ["NetworkingManager"]
+        ),
+        .library(
+            name: "DTOModels",
+            targets: ["DTOModels"]
+        ),
+        .library(
+            name: "Services",
+            targets: ["Services"]
         )
     ],
     targets: [
         .target(
             name: "NetworkingManager",
             dependencies: []
-            )
+        ),
+        .target(
+            name: "Services",
+            dependencies: [
+                "DTOModels",
+                "NetworkingManager"
+            ]
+        ),
+        .target(
+            name: "DTOModels",
+            dependencies: []
+        )
     ]
 )
