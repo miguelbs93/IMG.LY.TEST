@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NetworkingManager
 
 @main
 struct TreeViewApp: App {
