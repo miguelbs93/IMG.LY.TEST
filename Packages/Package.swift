@@ -5,36 +5,67 @@ import PackageDescription
 
 let package = Package(
     name: "Packages",
-    platforms: [.iOS(.v18)],
+    platforms: [.iOS(.v17)],
     products: [
         .library(
-            name: "NetworkingManager",
-            targets: ["NetworkingManager"]
+            name: "NetworkManager",
+            targets: ["NetworkManager"]
         ),
         .library(
             name: "DTOModels",
             targets: ["DTOModels"]
         ),
         .library(
+            name: "Models",
+            targets: ["Models"]
+        ),
+        .library(
             name: "Services",
             targets: ["Services"]
+        ),
+        .library(
+            name: "Helpers",
+            targets: ["Helpers"]
+        ),
+        .library(
+            name: "TreeScene",
+            targets: ["TreeScene"]
         )
     ],
     targets: [
         .target(
-            name: "NetworkingManager",
+            name: "NetworkManager",
             dependencies: []
         ),
         .target(
             name: "Services",
             dependencies: [
                 "DTOModels",
-                "NetworkingManager"
+                "NetworkManager"
             ]
         ),
         .target(
             name: "DTOModels",
             dependencies: []
-        )
-    ]
+        ),
+        .target(
+            name: "Models",
+            dependencies: []
+        ),
+        .target(
+            name: "Helpers",
+            dependencies: []
+        ),
+        .target(
+            name: "TreeScene",
+            dependencies: [
+                "DTOModels",
+                "Models",
+                "Services",
+                "Helpers",
+                "NetworkManager"
+            ]
+        ),
+    ],
+    swiftLanguageModes: [.v5]
 )

@@ -4,7 +4,7 @@ import Foundation
 import Services
 import NetworkManager
 
-final class TreeViewModel: ObservableObject {
+class TreeViewModel: ObservableObject {
     private let networkManager: NetworkService
     private let service: TreeDataFetcherServiceProtocol
     
@@ -29,6 +29,22 @@ final class TreeViewModel: ObservableObject {
             }
         } catch {
             print("error fetching data: \(error)")
+        }
+    }
+    
+    func deleteItem(at offsets: IndexSet, in parentNode: TreeNode? = nil) {
+        if let parentNode = parentNode {
+            parentNode.children?.remove(atOffsets: offsets)
+        } else {
+            nodes.remove(atOffsets: offsets)
+        }
+    }
+    
+    func moveItem(from source: IndexSet, to destination: Int, in parentNode: TreeNode? = nil) {
+        if let parentNode = parentNode {
+            parentNode.children?.move(fromOffsets: source, toOffset: destination)
+        } else {
+            nodes.move(fromOffsets: source, toOffset: destination)
         }
     }
 }

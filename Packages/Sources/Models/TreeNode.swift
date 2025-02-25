@@ -1,7 +1,7 @@
 import Foundation
 
-public struct TreeNode: Encodable, Identifiable, Equatable, Hashable {
-    public let children: [TreeNode]?
+public class TreeNode: ObservableObject {
+    @Published public var children: [TreeNode]?
     public let id: String
     public let label: String
     

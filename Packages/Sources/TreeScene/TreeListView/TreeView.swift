@@ -5,6 +5,8 @@ struct TreeView: View {
     @EnvironmentObject var viewModel: TreeViewModel
     @EnvironmentObject var coordinator: TreeCoordinator
     @EnvironmentObject var themeManager: ThemeManager
+    
+    @Environment(\.editMode) private var editMode
         
     var body: some View {
         Group {
@@ -17,8 +19,8 @@ struct TreeView: View {
                 }
             } else {
                 List {
-                    ForEach(viewModel.nodes) { node in
-                        NavigationLink(value: TreeCoordinator.Screen.treeNode(node)) {
+                    ForEach(viewModel.nodes, id: \.id) { node in
+                        NavigationLink(value: TreeCoordinator.Screen.treeNode(node.id)) {
                             Text(node.label)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.detailsFont)
@@ -26,6 +28,8 @@ struct TreeView: View {
                         }
                         .listRowBackground(Color.themeRowBackground)
                     }
+                    .onDelete(perform: editMode?.wrappedValue == .active ? deleteItem : nil)
+                    .onMove(perform: editMode?.wrappedValue == .active ? moveItem : nil)
                 }
             }
         }
@@ -39,10 +43,17 @@ struct TreeView: View {
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Edit") {
-                }
+                EditButton()
             }
         }
         .id(themeManager.isDarkMode)
+    }
+    
+    private func deleteItem(at offsets: IndexSet) {
+//        viewModel.deleteItem(at: offsets)
+    }
+    
+    private func moveItem(from source: IndexSet, to destination: Int) {
+//        viewModel.moveItem(from: source, to: destination)
     }
 }

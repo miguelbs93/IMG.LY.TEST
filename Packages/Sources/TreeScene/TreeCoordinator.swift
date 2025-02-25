@@ -6,11 +6,12 @@ import Models
 class TreeCoordinator: ObservableObject {
     @Published var path: [Screen] = []
     private let networkManager: NetworkService
+    private var treeViewModel: TreeViewModel!
 
     enum Screen: Hashable {
         case treeView
-        case treeNode(TreeNode)
-        case detail(TreeNode)
+        case treeNode(String)
+        case detail(String, String)
     }
     
     init(path: [Screen] = [], networkManager: NetworkService) {
@@ -23,10 +24,10 @@ class TreeCoordinator: ObservableObject {
         switch screen {
         case .treeView:
             makeInitialTreeView()
-        case .treeNode(let node):
-            makeTreeNodeView(with: node)
-        case .detail(let node):
-            makeDetailView(with: node)
+        case .treeNode(let nodeID):
+            makeTreeNodeView(with: nodeID)
+        case .detail(let nodeID, let title):
+            makeDetailView(with: nodeID, title: title)
         }
     }
 
@@ -47,20 +48,41 @@ class TreeCoordinator: ObservableObject {
 
 extension TreeCoordinator {
     func makeInitialTreeView() -> some View {
-        let viewModel = TreeViewModel(networkManager: networkManager)
+        if treeViewModel == nil {
+            treeViewModel = TreeViewModel(networkManager: networkManager)
+        }
         return TreeView()
-            .environmentObject(viewModel)
+            .environmentObject(treeViewModel)
     }
     
-    private func makeTreeNodeView(with node: TreeNode) -> some View {
-        TreeNodeView(node: node)
+    private func makeTreeNodeView(with nodeID: String) -> some View {
+        guard let selectedNode = getNode(nodeID, in: treeViewModel.nodes) else { return AnyView(EmptyView()) }
+        return AnyView(
+            TreeNodeView(node: selectedNode)
+                .environmentObject(treeViewModel)
+        )
     }
     
-    private func makeDetailView(with leaf: TreeNode) -> some View {
+    private func makeDetailView(with nodeID: String, title: String) -> some View {
         let service = TreeDataFetcherService(networkManager: networkManager)
-        let viewModel = DetailViewModel(leaf: leaf, service: service)
+        let viewModel = DetailViewModel(leafID: nodeID, title: title, service: service)
         return DetailView(viewModel: viewModel)
     }
+    
+    private func getNode(_ id: String, in nodes: [TreeNode]) -> TreeNode? {
+        for node in nodes {
+            if node.id == id {
+                return node
+            }
+            
+            if let children = node.children,
+                let found = getNode(id, in: children) {
+                return found
+            }
+        }
+        return nil
+    }
+
 }
 
 // MARK: - TreeCoordinatorView

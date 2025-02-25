@@ -7,18 +7,17 @@ final class DetailViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var leafDetails: TreeLeafDetailDTO?
     
-    private let leaf: TreeNode
+    private let leafID: String
+    var title: String
     private let service: TreeDataFetcherServiceProtocol
     
-    var title: String {
-        leaf.label
-    }
-    
     init(
-        leaf: TreeNode,
-         service: TreeDataFetcherServiceProtocol
+        leafID: String,
+        title: String,
+        service: TreeDataFetcherServiceProtocol
     ) {
-        self.leaf = leaf
+        self.leafID = leafID
+        self.title = title
         self.service = service
         Task {
             await fetchDetails()
@@ -30,7 +29,7 @@ final class DetailViewModel: ObservableObject {
         isLoading = true
         
         do {
-            leafDetails = try await service.fetchTreeLeafDetails(id: leaf.id)
+            leafDetails = try await service.fetchTreeLeafDetails(id: leafID)
         } catch {
             print("error \(error)")
         }
