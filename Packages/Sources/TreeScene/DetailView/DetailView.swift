@@ -25,6 +25,7 @@ struct DetailView: View {
                 }
             }
             .navigationTitle(viewModel.title)
+            .background(Color.themeBackground)
         }
     }
     
@@ -36,6 +37,7 @@ struct DetailView: View {
             Text("Last modified by: \(viewModel.leafDetails?.lastModifiedBy ?? "")")
         }
         .font(.tinyDetailsFont)
+        .foregroundColor(Color.themeText)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, constants.horizontalPadding.rawValue)
         .padding(.vertical, constants.verticalPadding.rawValue)
@@ -44,6 +46,7 @@ struct DetailView: View {
     private var detailText: some View {
         Text(viewModel.leafDetails?.description ?? "")
             .font(.detailsFont)
+            .foregroundColor(Color.themeText)
             .padding(.horizontal, constants.horizontalPadding.rawValue)
     }
 }

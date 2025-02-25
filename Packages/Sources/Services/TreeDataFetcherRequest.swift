@@ -1,5 +1,5 @@
 import Foundation
-import NetworkingManager
+import NetworkManager
 
 struct TreeDataFetcherRequest: HTTPRequest {
     var path: String {

@@ -65,16 +65,19 @@ extension TreeCoordinator {
 
 // MARK: - TreeCoordinatorView
 
-struct TreeCoordinatorView: View {
+public struct TreeCoordinatorView: View {
     @StateObject private var coordinator = TreeCoordinator(networkManager: DefaultNetworkManager())
 
-    var body: some View {
+    public init() { }
+    
+    public var body: some View {
         NavigationStack(path: $coordinator.path) {
             coordinator.makeInitialTreeView()
                 .navigationDestination(for: TreeCoordinator.Screen.self) { screen in
                     coordinator.destination(for: screen)
                 }
         }
+        .applyTheme()
         .environmentObject(coordinator)
     }
 }

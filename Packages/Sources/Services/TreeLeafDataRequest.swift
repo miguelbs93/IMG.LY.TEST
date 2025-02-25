@@ -1,5 +1,5 @@
 import Foundation
-import NetworkingManager
+import NetworkManager
 
 struct TreeLeafDataRequest: HTTPRequest {
     let id: String

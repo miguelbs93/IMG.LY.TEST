@@ -1,6 +1,6 @@
 import Foundation
 
-public class DefaultNetworkingManager: NetworkService, @unchecked Sendable {
+public class DefaultNetworkManager: NetworkService {
     private let session: URLSession
     private let validHTTPStatus = 200...299
     private let decoder: JSONDecoder
@@ -10,7 +10,7 @@ public class DefaultNetworkingManager: NetworkService, @unchecked Sendable {
     }
     
     public init(
-        decoder: JSONDecoder = .init(),
+        decoder: JSONDecoder = .customDecoder,
         session: URLSession = .shared
     ) {
         self.decoder = decoder
@@ -44,4 +44,18 @@ enum NetworkError: Error {
     case invalidResponse
     case decodingError
     case unkonwn
+}
+
+// MARK: - JSONDecoder
+
+extension JSONDecoder {
+    public static let customDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSX" // Supports milliseconds and timezone
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        return decoder
+    }()
 }

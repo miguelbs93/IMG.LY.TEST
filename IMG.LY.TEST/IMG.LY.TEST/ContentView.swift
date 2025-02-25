@@ -7,12 +7,16 @@
 
 import SwiftUI
 import TreeScene
+import Helpers
 
 @main
 struct ContentView: App {
+    @StateObject var themeViewModel = ThemeManager()
+    
     var body: some Scene {
         WindowGroup {
             TreeCoordinatorView()
+                .environmentObject(themeViewModel)
         }
     }
 }

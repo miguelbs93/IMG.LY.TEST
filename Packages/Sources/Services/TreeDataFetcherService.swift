@@ -1,29 +1,29 @@
-import NetworkingManager
+import NetworkManager
 import DTOModels
 import Foundation
 
 public protocol TreeDataFetcherServiceProtocol {
-    func fetchTreeData() async throws -> [TreeNode]?
-    func fetchTreeLeafDetails(id: String) async throws  -> TreeLeafDetail?
+    func fetchTreeData() async throws -> [TreeNodeDTO]?
+    func fetchTreeLeafDetails(id: String) async throws  -> TreeLeafDetailDTO?
 }
 
 public struct TreeDataFetcherService: TreeDataFetcherServiceProtocol {
     
-    private let networkManager: NetworkingService
+    private let networkManager: NetworkService
     
     // MARK: - Init
     
-    public init(networkManager: NetworkingService) {
+    public init(networkManager: NetworkService) {
         self.networkManager = networkManager
     }
     
-    public func fetchTreeData() async throws -> [TreeNode]? {
+    public func fetchTreeData() async throws -> [TreeNodeDTO]? {
         let request = TreeDataFetcherRequest()
         
-        var nodes: [TreeNode]?
+        var nodes: [TreeNodeDTO]?
         
         do {
-            nodes = try await networkManager.request(request, type: [TreeNode].self)
+            nodes = try await networkManager.request(request, type: [TreeNodeDTO].self)
         } catch {
             throw error
         }
@@ -31,12 +31,12 @@ public struct TreeDataFetcherService: TreeDataFetcherServiceProtocol {
         return nodes
     }
     
-    public func fetchTreeLeafDetails(id: String) async throws -> TreeLeafDetail? {
+    public func fetchTreeLeafDetails(id: String) async throws -> TreeLeafDetailDTO? {
         let request = TreeLeafDataRequest(id: id)
-        var detail: TreeLeafDetail?
+        var detail: TreeLeafDetailDTO?
         
         do {
-            detail = try await networkManager.request(request, type: TreeLeafDetail.self)
+            detail = try await networkManager.request(request, type: TreeLeafDetailDTO.self)
         } catch {
             print("error :\(error)")
         }

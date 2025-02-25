@@ -18,6 +18,7 @@ final class TreeViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     private func fetchData() async throws {
         var dtoNodes: [TreeNodeDTO] = []
         
