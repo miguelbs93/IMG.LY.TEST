@@ -1,6 +1,6 @@
 import Foundation
 
-public class DefaultNetworkingManager: NetworkingService {
+public class DefaultNetworkingManager: NetworkService, @unchecked Sendable {
     private let session: URLSession
     private let validHTTPStatus = 200...299
     private let decoder: JSONDecoder

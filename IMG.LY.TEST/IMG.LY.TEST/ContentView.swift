@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import TreeScene
 
 @main
 struct ContentView: App {
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-            }
+            TreeCoordinatorView()
         }
     }
 }

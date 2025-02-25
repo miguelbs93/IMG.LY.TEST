@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD0D39A72D6CDC7800C2A75E /* NetworkingManager in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39A62D6CDC7800C2A75E /* NetworkingManager */; };
-		AD0D39AE2D6D109400C2A75E /* NetworkingManager in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39AD2D6D109400C2A75E /* NetworkingManager */; };
 		AD0D39B02D6D109400C2A75E /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39AF2D6D109400C2A75E /* Services */; };
+		AD0D39C12D6D817600C2A75E /* DTOModels in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39C02D6D817600C2A75E /* DTOModels */; };
+		AD0D39C32D6D817600C2A75E /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39C22D6D817600C2A75E /* Models */; };
+		AD0D39C72D6D817600C2A75E /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39C62D6D817600C2A75E /* Services */; };
+		AD0D39DD2D6DA0FE00C2A75E /* DTOModels in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39DC2D6DA0FE00C2A75E /* DTOModels */; };
+		AD0D39DF2D6DA0FE00C2A75E /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39DE2D6DA0FE00C2A75E /* Models */; };
+		AD0D39E12D6DA0FE00C2A75E /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39E02D6DA0FE00C2A75E /* NetworkManager */; };
+		AD0D39E32D6DA0FE00C2A75E /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39E22D6DA0FE00C2A75E /* Services */; };
+		AD0D39F42D6DB51700C2A75E /* Helpers in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39F32D6DB51700C2A75E /* Helpers */; };
+		AD0D39F82D6DBA0600C2A75E /* TreeScene in Frameworks */ = {isa = PBXBuildFile; productRef = AD0D39F72D6DBA0600C2A75E /* TreeScene */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +66,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0D39F42D6DB51700C2A75E /* Helpers in Frameworks */,
+				AD0D39F82D6DBA0600C2A75E /* TreeScene in Frameworks */,
+				AD0D39C32D6D817600C2A75E /* Models in Frameworks */,
+				AD0D39C12D6D817600C2A75E /* DTOModels in Frameworks */,
+				AD0D39DF2D6DA0FE00C2A75E /* Models in Frameworks */,
 				AD0D39B02D6D109400C2A75E /* Services in Frameworks */,
-				AD0D39AE2D6D109400C2A75E /* NetworkingManager in Frameworks */,
-				AD0D39A72D6CDC7800C2A75E /* NetworkingManager in Frameworks */,
+				AD0D39DD2D6DA0FE00C2A75E /* DTOModels in Frameworks */,
+				AD0D39E12D6DA0FE00C2A75E /* NetworkManager in Frameworks */,
+				AD0D39E32D6DA0FE00C2A75E /* Services in Frameworks */,
+				AD0D39C72D6D817600C2A75E /* Services in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD0D39F22D6DB51700C2A75E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD8C6B052D6615D0003FBBE3 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +110,7 @@
 				AD8C6B102D6615D0003FBBE3 /* IMG.LY.TEST */,
 				AD8C6B222D6615D1003FBBE3 /* IMG.LY.TESTTests */,
 				AD8C6B2C2D6615D1003FBBE3 /* IMG.LY.TESTUITests */,
+				AD0D39F22D6DB51700C2A75E /* Frameworks */,
 				AD8C6B0F2D6615D0003FBBE3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,9 +145,16 @@
 			);
 			name = IMG.LY.TEST;
 			packageProductDependencies = (
-				AD0D39A62D6CDC7800C2A75E /* NetworkingManager */,
-				AD0D39AD2D6D109400C2A75E /* NetworkingManager */,
 				AD0D39AF2D6D109400C2A75E /* Services */,
+				AD0D39C02D6D817600C2A75E /* DTOModels */,
+				AD0D39C22D6D817600C2A75E /* Models */,
+				AD0D39C62D6D817600C2A75E /* Services */,
+				AD0D39DC2D6DA0FE00C2A75E /* DTOModels */,
+				AD0D39DE2D6DA0FE00C2A75E /* Models */,
+				AD0D39E02D6DA0FE00C2A75E /* NetworkManager */,
+				AD0D39E22D6DA0FE00C2A75E /* Services */,
+				AD0D39F32D6DB51700C2A75E /* Helpers */,
+				AD0D39F72D6DBA0600C2A75E /* TreeScene */,
 			);
 			productName = IMG.LY.TEST;
 			productReference = AD8C6B0E2D6615D0003FBBE3 /* IMG.LY.TEST.app */;
@@ -210,7 +239,7 @@
 			mainGroup = AD8C6B052D6615D0003FBBE3;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				AD0D39AC2D6D109400C2A75E /* XCLocalSwiftPackageReference "../Packages" */,
+				AD0D39DB2D6DA0FE00C2A75E /* XCLocalSwiftPackageReference "../Packages" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AD8C6B0F2D6615D0003FBBE3 /* Products */;
@@ -344,8 +373,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -400,7 +431,9 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = "";
 			};
 			name = Release;
 		};
@@ -428,7 +461,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
@@ -469,7 +502,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
@@ -618,24 +651,53 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		AD0D39AC2D6D109400C2A75E /* XCLocalSwiftPackageReference "../Packages" */ = {
+		AD0D39DB2D6DA0FE00C2A75E /* XCLocalSwiftPackageReference "../Packages" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../Packages;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AD0D39A62D6CDC7800C2A75E /* NetworkingManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NetworkingManager;
-		};
-		AD0D39AD2D6D109400C2A75E /* NetworkingManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NetworkingManager;
-		};
 		AD0D39AF2D6D109400C2A75E /* Services */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Services;
+		};
+		AD0D39C02D6D817600C2A75E /* DTOModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DTOModels;
+		};
+		AD0D39C22D6D817600C2A75E /* Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Models;
+		};
+		AD0D39C62D6D817600C2A75E /* Services */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Services;
+		};
+		AD0D39DC2D6DA0FE00C2A75E /* DTOModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DTOModels;
+		};
+		AD0D39DE2D6DA0FE00C2A75E /* Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Models;
+		};
+		AD0D39E02D6DA0FE00C2A75E /* NetworkManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkManager;
+		};
+		AD0D39E22D6DA0FE00C2A75E /* Services */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Services;
+		};
+		AD0D39F32D6DB51700C2A75E /* Helpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD0D39DB2D6DA0FE00C2A75E /* XCLocalSwiftPackageReference "../Packages" */;
+			productName = Helpers;
+		};
+		AD0D39F72D6DBA0600C2A75E /* TreeScene */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TreeScene;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
