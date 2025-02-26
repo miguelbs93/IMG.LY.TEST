@@ -67,10 +67,10 @@ struct TreeView: View {
     }
     
     private func deleteItem(at offsets: IndexSet) {
-//        viewModel.deleteItem(at: offsets)
+        viewModel.deleteItem(at: offsets)
     }
     
     private func moveItem(from source: IndexSet, to destination: Int) {
-//        viewModel.moveItem(from: source, to: destination)
+        viewModel.moveItem(from: source, to: destination)
     }
 }
