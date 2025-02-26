@@ -49,11 +49,6 @@
 			path = IMG.LY.TEST;
 			sourceTree = "<group>";
 		};
-		AD8C6B222D6615D1003FBBE3 /* IMG.LY.TESTTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = IMG.LY.TESTTests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +91,6 @@
 			children = (
 				AD0D399A2D6B859100C2A75E /* Packages */,
 				AD8C6B102D6615D0003FBBE3 /* IMG.LY.TEST */,
-				AD8C6B222D6615D1003FBBE3 /* IMG.LY.TESTTests */,
 				AD8C6B0F2D6615D0003FBBE3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -158,9 +152,6 @@
 			);
 			dependencies = (
 				AD8C6B212D6615D1003FBBE3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				AD8C6B222D6615D1003FBBE3 /* IMG.LY.TESTTests */,
 			);
 			name = IMG.LY.TESTTests;
 			packageProductDependencies = (
@@ -428,7 +419,6 @@
 				CODE_SIGN_ENTITLEMENTS = IMG.LY.TEST/IMG_LY_TEST.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"IMG.LY.TEST/Preview Content\"";
 				DEVELOPMENT_TEAM = 9YC8Z5FTSF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -469,7 +459,6 @@
 				CODE_SIGN_ENTITLEMENTS = IMG.LY.TEST/IMG_LY_TEST.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"IMG.LY.TEST/Preview Content\"";
 				DEVELOPMENT_TEAM = 9YC8Z5FTSF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

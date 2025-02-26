@@ -66,6 +66,13 @@ let package = Package(
                 "NetworkManager"
             ]
         ),
+        .testTarget(
+            name: "TreeSceneTests",
+            dependencies: [
+                "TreeScene"
+            ],
+            path: "Tests/TreeSceneTests"
+        )
     ],
     swiftLanguageModes: [.v5]
 )
