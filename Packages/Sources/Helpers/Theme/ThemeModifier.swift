@@ -27,8 +27,8 @@ public struct ThemedViewModifier: ViewModifier {
     }
 }
 
-extension View {
-    public func applyTheme() -> some View {
+public extension View {
+    func applyTheme() -> some View {
         self.modifier(ThemedViewModifier())
     }
 }

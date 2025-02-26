@@ -1,17 +1,15 @@
-//
-//  IMG_LY_TESTApp.swift
-//  IMG.LY.TEST
-//
-//  Created by Miguel Bou Sleiman on 2/19/25.
-//
+import SwiftUI
+import TreeScene
+import Helpers
 
-//import SwiftUI
-//
-//@main
-//struct IMG_LY_TESTApp: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//        }
-//    }
-//}
+@main
+struct IMG_LY_TESTApp: App {
+    @StateObject var themeViewModel = ThemeManager()
+    
+    var body: some Scene {
+        WindowGroup {
+            TreeCoordinatorView()
+                .environmentObject(themeViewModel)
+        }
+    }
+}

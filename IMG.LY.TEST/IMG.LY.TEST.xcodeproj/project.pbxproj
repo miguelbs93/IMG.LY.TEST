@@ -54,11 +54,6 @@
 			path = IMG.LY.TESTTests;
 			sourceTree = "<group>";
 		};
-		AD8C6B2C2D6615D1003FBBE3 /* IMG.LY.TESTUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = IMG.LY.TESTUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,21 +91,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AD0D39F22D6DB51700C2A75E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AD8C6B052D6615D0003FBBE3 = {
 			isa = PBXGroup;
 			children = (
 				AD0D399A2D6B859100C2A75E /* Packages */,
 				AD8C6B102D6615D0003FBBE3 /* IMG.LY.TEST */,
 				AD8C6B222D6615D1003FBBE3 /* IMG.LY.TESTTests */,
-				AD8C6B2C2D6615D1003FBBE3 /* IMG.LY.TESTUITests */,
-				AD0D39F22D6DB51700C2A75E /* Frameworks */,
 				AD8C6B0F2D6615D0003FBBE3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -195,9 +181,6 @@
 			);
 			dependencies = (
 				AD8C6B2B2D6615D1003FBBE3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				AD8C6B2C2D6615D1003FBBE3 /* IMG.LY.TESTUITests */,
 			);
 			name = IMG.LY.TESTUITests;
 			packageProductDependencies = (
