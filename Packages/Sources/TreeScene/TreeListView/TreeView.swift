@@ -52,10 +52,13 @@ struct TreeView: View {
         .navigationTitle("Tree View")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(themeManager.isDarkMode ? "🌞" : "🌙") {
+                Button(action: {
                     themeManager.toggleTheme()
+                }) {
+                    Image(systemName: "circle.lefthalf.filled")
                 }
             }
+            
             ToolbarItem(placement: .navigationBarTrailing) {
                 EditButton()
             }
