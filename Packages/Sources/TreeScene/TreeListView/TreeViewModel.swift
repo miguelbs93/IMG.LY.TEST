@@ -19,6 +19,8 @@ class TreeViewModel: ObservableObject {
         }
     }
     
+    /// Fetches tree data asynchronously from the service and updates the nodes.
+    /// - Throws: An error if the network request fails.
     @MainActor
     func fetchData() async throws {
         var dtoNodes: [TreeNodeDTO] = []
@@ -35,27 +37,23 @@ class TreeViewModel: ObservableObject {
         
         isLoading = false
     }
-    
-    func deleteItem(at offsets: IndexSet, in parentNode: TreeNode? = nil) {
-        if let parentNode = parentNode {
-            parentNode.children?.remove(atOffsets: offsets)
-        } else {
-            nodes.remove(atOffsets: offsets)
-        }
+}
+
+// MARK: - Delete/Move Nodes
+extension TreeViewModel {
+    func deleteItem(at offsets: IndexSet) {
+        nodes.remove(atOffsets: offsets)
     }
     
-    func moveItem(from source: IndexSet, to destination: Int, in parentNode: TreeNode? = nil) {
-        if let parentNode = parentNode {
-            parentNode.children?.move(fromOffsets: source, toOffset: destination)
-        } else {
-            nodes.move(fromOffsets: source, toOffset: destination)
-        }
+    func moveItem(from source: IndexSet, to destination: Int) {
+        nodes.move(fromOffsets: source, toOffset: destination)
     }
 }
 
 // MARK: - TreeNode
 
 extension TreeNode {
+    /// This method that  returns TreeNode Model from the TreeNodeDTO
     static func getNode(_ dto: TreeNodeDTO) -> TreeNode {
         TreeNode(
             children: dto.children?.map(TreeNode.getNode),

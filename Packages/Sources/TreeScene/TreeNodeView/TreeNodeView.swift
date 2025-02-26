@@ -17,6 +17,7 @@ struct TreeNodeView: View {
                         Text(child.label)
                     }
                 }
+                // delete & move actions added, but only available when screen is in edit mode
                 .onDelete(perform: editMode?.wrappedValue == .active ? deleteItem : nil)
                 .onMove(perform: editMode?.wrappedValue == .active ? moveItem : nil)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -35,6 +36,8 @@ struct TreeNodeView: View {
         }
     }
     
+    // MARK: - Delete/Move Children from node
+    /// The below will be automatically reflected on the initial tree data in the TreeViewModel
     private func deleteItem(at offsets: IndexSet) {
         node.children?.remove(atOffsets: offsets)
     }
