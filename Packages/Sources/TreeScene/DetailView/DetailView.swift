@@ -3,6 +3,7 @@ import Helpers
 
 struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
+    @Environment(\.dismiss) private var dismiss
     
     private enum constants: CGFloat {
         case horizontalPadding = 16
@@ -10,23 +11,35 @@ struct DetailView: View {
     }
     
     var body: some View {
-        if viewModel.isLoading {
-            VStack {
-                ProgressView("Loading...")
-                    .progressViewStyle(CircularProgressViewStyle())
-                    .padding()
-            }
-            .navigationTitle(viewModel.title)
-        } else {
-            ScrollView {
-                if viewModel.leafDetails != nil {
+        ZStack {
+            Color.themeBackground
+                        .edgesIgnoringSafeArea(.all)
+            
+            if viewModel.leafDetails != nil {
+                ScrollView {
                     detailText
                     header
                 }
+                .background(Color.themeBackground)
             }
-            .navigationTitle(viewModel.title)
-            .background(Color.themeBackground)
+            
+            if viewModel.isLoading {
+                LoadingView()
+            }
         }
+        .navigationTitle(viewModel.title)
+        .alert(
+            "Error",
+            isPresented: $viewModel.showAlert,
+            actions: {
+                Button("OK", role: .cancel) {
+                    dismiss()
+                }
+            },
+            message: {
+                Text(viewModel.errorMessage ?? "Something went wrong, try again later!")
+            }
+        )
     }
     
     private var header: some View {

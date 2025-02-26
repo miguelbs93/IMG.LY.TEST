@@ -27,7 +27,7 @@ public class DefaultNetworkManager: NetworkService {
         }
         
         guard validHTTPStatus ~= response.statusCode else {
-            throw NetworkError.invalidResponse
+            throw NetworkError.invalidResponse(code: response.statusCode)
         }
         
         do {
@@ -40,8 +40,8 @@ public class DefaultNetworkManager: NetworkService {
 
 // MARK: - Network Error
 
-enum NetworkError: Error {
-    case invalidResponse
+public enum NetworkError: Error {
+    case invalidResponse(code: Int)
     case decodingError
     case unkonwn
 }

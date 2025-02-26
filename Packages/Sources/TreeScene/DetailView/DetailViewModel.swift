@@ -2,11 +2,14 @@ import Foundation
 import Services
 import DTOModels
 import Models
+import NetworkManager
 
 final class DetailViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var leafDetails: TreeLeafDetailDTO?
+    @Published var showAlert: Bool = false
     
+    var errorMessage: String?
     private let leafID: String
     var title: String
     private let service: TreeDataFetcherServiceProtocol
@@ -31,7 +34,13 @@ final class DetailViewModel: ObservableObject {
         do {
             leafDetails = try await service.fetchTreeLeafDetails(id: leafID)
         } catch {
-            print("error \(error)")
+            if let networkError = error as? NetworkError,
+               case .invalidResponse(let code) = networkError, code == 404 {
+                self.errorMessage = "No data found for this leaf!"
+            } else {
+                self.errorMessage = "Something went wrong, please try again later!"
+            }
+            self.showAlert = true
         }
         
         isLoading = false

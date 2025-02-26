@@ -9,6 +9,7 @@ class TreeViewModel: ObservableObject {
     private let service: TreeDataFetcherServiceProtocol
     
     @Published var nodes: [TreeNode] = []
+    @Published var isLoading: Bool = false
     
     init(networkManager: NetworkService) {
         self.networkManager = networkManager
@@ -19,8 +20,9 @@ class TreeViewModel: ObservableObject {
     }
     
     @MainActor
-    private func fetchData() async throws {
+    func fetchData() async throws {
         var dtoNodes: [TreeNodeDTO] = []
+        isLoading = true
         
         do {
             dtoNodes = try await self.service.fetchTreeData() ?? []
@@ -30,6 +32,8 @@ class TreeViewModel: ObservableObject {
         } catch {
             print("error fetching data: \(error)")
         }
+        
+        isLoading = false
     }
     
     func deleteItem(at offsets: IndexSet, in parentNode: TreeNode? = nil) {

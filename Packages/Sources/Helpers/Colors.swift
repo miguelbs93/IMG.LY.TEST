@@ -14,6 +14,9 @@ public extension Color {
         isDarkMode ? .init(white: 0.35): .white
     }
     
+    static var loaderColor: Color {
+        isDarkMode ? .white : .gray
+    }
     static var primary: Color {
         .blue
     }

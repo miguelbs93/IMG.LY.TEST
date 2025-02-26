@@ -38,7 +38,7 @@ public struct TreeDataFetcherService: TreeDataFetcherServiceProtocol {
         do {
             detail = try await networkManager.request(request, type: TreeLeafDetailDTO.self)
         } catch {
-            print("error :\(error)")
+            throw error
         }
         
         return detail

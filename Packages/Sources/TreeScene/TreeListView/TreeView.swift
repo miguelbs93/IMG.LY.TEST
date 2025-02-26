@@ -9,13 +9,23 @@ struct TreeView: View {
     @Environment(\.editMode) private var editMode
         
     var body: some View {
-        Group {
+        ZStack {
+            Color.themeBackground
+                .edgesIgnoringSafeArea(.all)
+                
             if viewModel.nodes.isEmpty {
-                VStack {
+                VStack(alignment: .center){
                     Text("No data available.")
-                    Button("Retry") {
-                        
+                        .font(.detailsFont)
+                    Button(action: {
+                        Task {
+                            try? await viewModel.fetchData()
+                        }
+                    }) {
+                        Label("Retry", systemImage: "arrow.clockwise")
                     }
+                    .font(.detailsFont)
+                    .foregroundColor(Color.blue)
                 }
             } else {
                 List {
@@ -31,6 +41,10 @@ struct TreeView: View {
                     .onDelete(perform: editMode?.wrappedValue == .active ? deleteItem : nil)
                     .onMove(perform: editMode?.wrappedValue == .active ? moveItem : nil)
                 }
+            }
+            
+            if viewModel.isLoading {
+                LoadingView()
             }
         }
         .scrollContentBackground(.hidden)
