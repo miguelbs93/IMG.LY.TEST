@@ -4,17 +4,17 @@ import DTOModels
 import Models
 import NetworkManager
 
-final class DetailViewModel: ObservableObject {
-    @Published var isLoading: Bool = false
-    @Published var leafDetails: TreeLeafDetailDTO?
-    @Published var showAlert: Bool = false
+public final class DetailViewModel: ObservableObject {
+    @Published public var isLoading: Bool = false
+    @Published public var leafDetails: TreeLeafDetailDTO?
+    @Published public var showAlert: Bool = false
     
-    var errorMessage: String?
+    public var errorMessage: String?
     private let leafID: String
     var title: String
     private let service: TreeDataFetcherServiceProtocol
     
-    init(
+    public init(
         leafID: String,
         title: String,
         service: TreeDataFetcherServiceProtocol
@@ -28,7 +28,7 @@ final class DetailViewModel: ObservableObject {
     }
     
     @MainActor
-    func fetchDetails() async {
+    public func fetchDetails() async {
         isLoading = true
         
         do {

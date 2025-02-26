@@ -49,7 +49,7 @@ class TreeCoordinator: ObservableObject {
 extension TreeCoordinator {
     func makeInitialTreeView() -> some View {
         if treeViewModel == nil {
-            treeViewModel = TreeViewModel(networkManager: networkManager)
+            treeViewModel = TreeViewModel(service: TreeDataFetcherService(networkManager: networkManager))
         }
         return TreeView()
             .environmentObject(treeViewModel)

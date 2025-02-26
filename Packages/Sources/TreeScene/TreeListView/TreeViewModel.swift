@@ -5,15 +5,13 @@ import Services
 import NetworkManager
 
 class TreeViewModel: ObservableObject {
-    private let networkManager: NetworkService
     private let service: TreeDataFetcherServiceProtocol
     
     @Published var nodes: [TreeNode] = []
     @Published var isLoading: Bool = false
     
-    init(networkManager: NetworkService) {
-        self.networkManager = networkManager
-        self.service = TreeDataFetcherService(networkManager: networkManager)
+    init(service: TreeDataFetcherServiceProtocol) {
+        self.service = service
         Task {
             try? await fetchData()
         }
@@ -28,9 +26,7 @@ class TreeViewModel: ObservableObject {
         
         do {
             dtoNodes = try await self.service.fetchTreeData() ?? []
-            DispatchQueue.main.async {
-                self.nodes = dtoNodes.map(TreeNode.getNode)
-            }
+            self.nodes = dtoNodes.map(TreeNode.getNode)
         } catch {
             print("error fetching data: \(error)")
         }

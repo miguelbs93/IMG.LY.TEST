@@ -69,7 +69,8 @@ let package = Package(
         .testTarget(
             name: "TreeSceneTests",
             dependencies: [
-                "TreeScene"
+                "TreeScene",
+                "DTOModels"
             ],
             path: "Tests/TreeSceneTests"
         )
